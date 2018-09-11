@@ -2,7 +2,12 @@ package database;
 import java.sql.*;
 
 public class SQLiteNewDatabase {
-	public static void main(String args[]) {
+	
+	public SQLiteNewDatabase() {
+		super();
+	}
+
+	public static void newDatabase() {
 		Connection c = null;
 		try {
 			Class.forName("org.sqlite.JDBC");
