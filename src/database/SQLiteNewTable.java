@@ -4,11 +4,6 @@ import java.sql.*;
 
 public class SQLiteNewTable {
 	
-	
-	public SQLiteNewTable() {
-		super();
-	}
-
 	//TODO build a table contains: Energy, Protein, Fat, Saturated Fatty Acids, Carbohydrates, Sugars, Sodium, Cost
 	public static void newTable() {
 		Connection c = null;

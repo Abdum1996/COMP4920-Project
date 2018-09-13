@@ -2,27 +2,21 @@ package database;
 
 import java.sql.*;
 
-public class SQLiteInsertFood {
+import food.Food;
 
-	public SQLiteInsertFood() {
-		super();
-	}
+public class SQLiteInsertFood {
 
 	public static int uniqueID = 1;
 	
-	public static void insertFood(String name, double energy, double protein, double fat, double sfa, double carb, double sugar, double sodium, double cost) {
-		Connection c = null;
+	public static void insertFood(Food food) {
+		Connection c = SQLiteAccess.buildConnection("food.db");
 		Statement stmt = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:food.db");
-			c.setAutoCommit(false);
-			System.out.println("Food database opened successfully");
 			stmt = c.createStatement();
-			String sql = "INSERT INTO FOOD (ID,NAME,ENERGY,PROTEIN,FAT,SFA,CARB,SUGAR,SODIUM,COST) " + 
-						 "VALUES (" + uniqueID + ", '" + name + "', " + energy + ", " + protein + ", " + fat + ", " + sfa + ", " + carb + ", " + sugar + ", " + sodium + ", " + cost + " );";
+			String command = "INSERT INTO FOOD (ID,NAME,ENERGY,PROTEIN,FAT,SFA,CARB,SUGAR,SODIUM,COST) " + 
+						 "VALUES (" + uniqueID + ", '" + food.getName() + "', " + food.getEnergy() + ", " + food.getProtein() + ", " + food.getFat() + ", " + food.getSfa() + ", " + food.getCarb() + ", " + food.getSugar() + ", " + food.getSodium() + ", " + food.getCost() + " );";
 			uniqueID++;
-			stmt.executeUpdate(sql);
+			stmt.executeUpdate(command);
 			stmt.close();
 			c.commit();
 			c.close();
@@ -30,6 +24,6 @@ public class SQLiteInsertFood {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
 		}
-		System.out.println("Food "+name+"Inserted successfully");
+		System.out.println("Food "+food.getName()+"Inserted successfully");
 	}
 }
