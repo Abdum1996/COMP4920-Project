@@ -34,19 +34,18 @@ public class SQLiteFoodSelect {
 		System.out.println("Food List print Complete");
 	}
 	
-	@SuppressWarnings("null")
 	public static Food getFoodByName(String input) {
 		Connection c = SQLiteAccess.buildConnection("food.db");
 		Statement stmt = null;
 		String name = null;
-		double energy = (Double) null;
-		double protein = (Double) null;
-		double fat = (Double) null;
-		double sfa = (Double) null;
-		double carb = (Double) null;
-		double sugar = (Double) null;
-		double sodium = (Double) null;
-		double cost = (Double) null;
+		double energy = 0;
+		double protein = 0;
+		double fat = 0;
+		double sfa = 0;
+		double carb = 0;
+		double sugar = 0;
+		double sodium = 0;
+		double cost = 0;
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM FOOD WHERE NAME=" + '"' + input + '"' + ";");
