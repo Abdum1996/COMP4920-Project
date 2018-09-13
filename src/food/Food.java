@@ -1,4 +1,6 @@
 package food;
+import java.util.ArrayList;
+
 import database.*;
 
 public class Food {
@@ -26,6 +28,20 @@ public class Food {
 		this.cost = cost;
 	}
 
+	public ArrayList<String> getInformation() {
+		ArrayList<String> info = new ArrayList<String>();
+		info.add(this.name);
+		info.add(String.format("%.2f", energy));
+		info.add(String.format("%.2f", protein));
+		info.add(String.format("%.2f", fat));
+		info.add(String.format("%.2f", sfa));
+		info.add(String.format("%.2f", carb));
+		info.add(String.format("%.2f", sugar));
+		info.add(String.format("%.2f", sodium));
+		info.add(String.format("%.2f", cost));
+		return info;
+	}
+	
 	public void insertFood() {
 		SQLiteInsertFood.insertFood(this);
 	}
