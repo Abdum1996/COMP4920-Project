@@ -50,6 +50,10 @@ public class Food {
 		SQLiteFoodSelect.deleteFoodByName(this.getName());
 	}
 	
+	public void updateFood() {
+		SQLiteInsertFood.updateFood(this);
+	}
+	
 	//Getters and Setters below
 	public String getName() {
 		return name;
