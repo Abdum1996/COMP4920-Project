@@ -30,6 +30,7 @@ public class MasterAccess {
 		dailyNeedValue.put("Carb", 310.0);
 		dailyNeedValue.put("Sugar", 90.0);
 		dailyNeedValue.put("Sodium", 2300.0);
+		dailyNeedValue.put("Cost", 0.0);
 	}
 	
 	public MasterAccess () {
