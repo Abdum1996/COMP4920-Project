@@ -1,10 +1,20 @@
 package database;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import food.Food;
 
 public class SQLiteInsertFood {
+	
+	public static void insertFoodList(ArrayList<Food> fList) {
+		for(Food f : fList) {
+			if(SQLiteFoodSelect.getFoodByName(f.getName()) != null)
+				SQLiteInsertFood.updateFood(f);
+			else
+				SQLiteInsertFood.insertFood(f);
+		}
+	}
 
 	public static void insertFood(Food food) {
 		Connection c = SQLiteAccess.buildConnection("food.db");
