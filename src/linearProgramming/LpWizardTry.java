@@ -8,6 +8,11 @@ import food.*;
 import masterAccess.*;
 import scpsolver.problems.*;
 
+/*
+ * This class provide LP Solving for minimum variable meal combo
+ * initialise by a foodList (from SQLite database) and the variable want to be minimum in String format
+ * Call Solver by getLowestCombo method, it will return a hashmap of foodName->Number
+ */
 public class LpWizardTry {
 	ArrayList<Food> fList;
 	HashMap<String, Double> dailyNeed;
