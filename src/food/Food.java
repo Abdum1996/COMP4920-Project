@@ -42,6 +42,30 @@ public class Food {
 		return info;
 	}
 	
+	public double getByString(String str) {
+		switch(str) 
+		{
+			case "energy":
+				return getEnergy();
+			case "protein":
+				return getProtein();
+			case "fat":
+				return getFat();
+			case "sfa":
+				return getSfa();
+			case "carb":
+				return getCarb();
+			case "sugar":
+				return getSugar();
+			case "sodium":
+				return getSodium();
+			case "cost":
+				return getCost();
+			default:
+				return -1.0;
+		}
+	}
+	
 	public void insertFood() {
 		SQLiteInsertFood.insertFood(this);
 	}
