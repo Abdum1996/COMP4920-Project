@@ -20,6 +20,18 @@ public class MasterAccess {
 		dailyNeed.put("Sodium", "2300 mg");
 	}
 	
+	private static final HashMap<String, Double> dailyNeedValue;
+	static {
+		dailyNeedValue = new HashMap<String, Double>();
+		dailyNeedValue.put("Energy", 8700.0);
+		dailyNeedValue.put("Protein", 50.0);
+		dailyNeedValue.put("Fat", 70.0);
+		dailyNeedValue.put("Saturated Fat", 24.0);
+		dailyNeedValue.put("Carbohydrates", 310.0);
+		dailyNeedValue.put("Sugar", 90.0);
+		dailyNeedValue.put("Sodium", 2300.0);
+	}
+	
 	public MasterAccess () {
 		foodList = new ArrayList<Food>();
 	}
@@ -38,8 +50,12 @@ public class MasterAccess {
 		return foodList;
 	}
 
-	public HashMap<String, String> getDailyNeed() {
+	public static HashMap<String, String> getDailyNeed() {
 		return dailyNeed;
+	}
+
+	public static HashMap<String, Double> getDailyneedvalue() {
+		return dailyNeedValue;
 	}
 
 }
