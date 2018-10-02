@@ -4,7 +4,6 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="sqlite-jdbc-3.23.1.jar"/>
 	<classpathentry kind="lib" path="LPSOLVESolverPack.jar"/>
-	<classpathentry kind="lib" path="SCPSolver.jar"/>
 	<classpathentry kind="lib" path="GLPKSolverPack.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
