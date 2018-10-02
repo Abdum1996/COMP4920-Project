@@ -16,13 +16,15 @@ import scpsolver.problems.*;
 public class LpWizardTry {
 	ArrayList<Food> fList;
 	HashMap<String, Double> dailyNeed;
+	HashMap<String, Integer> reserve;
 	String lowest;
 	ArrayList<String> variables;
 	
-	public LpWizardTry(ArrayList<Food> fList, String lowest) {
+	public LpWizardTry(ArrayList<Food> fList, String lowest, HashMap<String, Integer> reserve) {
 		this.fList = fList;
 		this.dailyNeed = MasterAccess.getDailyneedvalue();
 		this.lowest = lowest;
+		this.reserve = reserve;
 		this.variables = new ArrayList<String>(Arrays.asList("Energy", "Protein", "Fat", "Sfa", "Carb", "Sugar", "Sodium", "Cost"));
 	}
 	
@@ -56,9 +58,13 @@ public class LpWizardTry {
 		lpwCList.put(lowest, lpwC);
 		
 		for(Food f : fList) {
-			LPWizardConstraint lpwCN = lpw.addConstraint("Number"+f.getName(), 0, "<=");
+			int reserveNum = 0;
+			if(reserve.containsKey(f.getName()))
+				reserveNum = reserve.get(f.getName());
+			LPWizardConstraint lpwCN = lpw.addConstraint("Number"+f.getName(), reserveNum, "<=");
 			lpwCN.plus(f.getName(), 1.0);
 			lpwCList.put("Number"+f.getName(), lpwCN);
+			System.out.println("Number"+f.getName()+" : " + reserveNum + "<= " + f.getName());
 		}
 		
 		lpw.addConstraints(lpwCList);
