@@ -26,8 +26,8 @@ public class MasterAccess {
 		dailyNeedValue.put("Energy", 8700.0);
 		dailyNeedValue.put("Protein", 50.0);
 		dailyNeedValue.put("Fat", 70.0);
-		dailyNeedValue.put("Saturated Fat", 24.0);
-		dailyNeedValue.put("Carbohydrates", 310.0);
+		dailyNeedValue.put("Sfa", 24.0);
+		dailyNeedValue.put("Carb", 310.0);
 		dailyNeedValue.put("Sugar", 90.0);
 		dailyNeedValue.put("Sodium", 2300.0);
 	}

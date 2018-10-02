@@ -76,15 +76,20 @@ public class LPWizard {
 		return plus(variable, 1.0, group);
 	}
 	
+	//Method Add by Xiaowei Zhou
+	public void addConstraints(HashMap<String, LPWizardConstraint> lpwCList) {
+		for(String lpwC : lpwCList.keySet())
+			constraints.put(lpwC, lpwCList.get(lpwC));
+	}
+	
+	//Method Changed by Xiaowei Zhou
 	public LPWizardConstraint addConstraint(String name, double value, String stype) {
 		byte type = LPWizardConstraint.BIGGERTHANEQUALS;
 		if (stype.equalsIgnoreCase("<=")) type = LPWizardConstraint.BIGGERTHANEQUALS;
 		if (stype.equalsIgnoreCase(">=")) type = LPWizardConstraint.SMALLERTHANEQUALS;
 		if (stype.equalsIgnoreCase("=")) type = LPWizardConstraint.EQUALS;
-		
-		
 		LPWizardConstraint c = new LPWizardConstraint(type,value, this);
-		constraints.put(name, c);
+		//constraints.put(name, c);
 		return c;	
 	}
 	

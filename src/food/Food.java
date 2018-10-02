@@ -45,21 +45,21 @@ public class Food {
 	public double getByString(String str) {
 		switch(str) 
 		{
-			case "energy":
+			case "Energy":
 				return getEnergy();
-			case "protein":
+			case "Protein":
 				return getProtein();
-			case "fat":
+			case "Fat":
 				return getFat();
-			case "sfa":
+			case "Sfa":
 				return getSfa();
-			case "carb":
+			case "Carb":
 				return getCarb();
-			case "sugar":
+			case "Sugar":
 				return getSugar();
-			case "sodium":
+			case "Sodium":
 				return getSodium();
-			case "cost":
+			case "Cost":
 				return getCost();
 			default:
 				return -1.0;
