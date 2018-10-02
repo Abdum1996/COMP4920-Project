@@ -21,8 +21,8 @@ public class SQLiteInsertFood {
 		Statement stmt = null;
 		try {
 			stmt = c.createStatement();
-			String command = "INSERT INTO FOOD (ID,NAME,ENERGY,PROTEIN,FAT,SFA,CARB,SUGAR,SODIUM,COST) " + 
-						 "VALUES (" + food.getName() + "', " + food.getEnergy() + ", " + food.getProtein() + ", " + food.getFat() + ", " + food.getSfa() + ", " + food.getCarb() + ", " + food.getSugar() + ", " + food.getSodium() + ", " + food.getCost() + " );";
+			String command = "INSERT INTO FOOD (NAME,ENERGY,PROTEIN,FAT,SFA,CARB,SUGAR,SODIUM,COST) " + 
+						 "VALUES ('" + food.getName() + "', " + food.getEnergy() + ", " + food.getProtein() + ", " + food.getFat() + ", " + food.getSfa() + ", " + food.getCarb() + ", " + food.getSugar() + ", " + food.getSodium() + ", " + food.getCost() + " );";
 			stmt.executeUpdate(command);
 			stmt.close();
 			c.commit();

@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import food.*;
 
 public class SQLiteMasterAccessTest {
-
+	/*
 	public static void main (String[] Args) {
+		
 		SQLiteNewDatabase.newDatabase();
 		SQLiteNewTable.newTable();
 		ArrayList<Food> fList = new ArrayList<Food>();
@@ -18,5 +19,7 @@ public class SQLiteMasterAccessTest {
 		SQLiteInsertFood.insertFoodList(fList);
 		//Basic structure completed, run this code to see inserted food big mac.
 		SQLiteFoodSelect.selectAll();
+		
 	}
+	*/
 }

@@ -1,6 +1,7 @@
 package database;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import food.Food;
 
@@ -31,6 +32,44 @@ public class SQLiteFoodSelect {
 			System.exit(0);
 		}
 		System.out.println("Food List print Complete");
+	}
+	
+	public static ArrayList<Food> selectAllFood() {
+		ArrayList<Food> resultList = new ArrayList<Food>();
+		Connection c = SQLiteAccess.buildConnection("food.db");
+		Statement stmt = null;
+		String name = null;
+		double energy = 0;
+		double protein = 0;
+		double fat = 0;
+		double sfa = 0;
+		double carb = 0;
+		double sugar = 0;
+		double sodium = 0;
+		double cost = 0;
+		try {
+			stmt = c.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM FOOD;");
+			while(rs.next()) {
+				name = rs.getString("name");
+				energy = rs.getFloat("energy");
+				protein = rs.getFloat("protein");
+				fat = rs.getFloat("fat");
+				sfa = rs.getFloat("sfa");
+				carb = rs.getFloat("carb");
+				sugar = rs.getFloat("sugar");
+				sodium = rs.getFloat("sodium");
+				cost = rs.getFloat("cost");
+				resultList.add(new Food(name, energy, protein, fat, sfa, carb, sugar, sodium, cost));
+			}
+			rs.close();
+			stmt.close();
+			c.close();
+		} catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
+		return resultList;
 	}
 	
 	public static Food getFoodByName(String input) {
@@ -78,7 +117,7 @@ public class SQLiteFoodSelect {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
 		}
-		System.out.println("Search Complete");
+		//System.out.println("Search Complete");
 		Food result = new Food(name, energy, protein, fat, sfa, carb, sugar, sodium, cost);
 		if (result.getName() == null)
 			return null;
