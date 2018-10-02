@@ -10,7 +10,7 @@ import scpsolver.problems.*;
 
 /*
  * This class provide LP Solving for minimum variable meal combo
- * initialise by a foodList (from SQLite database) and the variable want to be minimum in String format
+ * initialise by a foodList (from SQLite database), the variable want to be minimum in String format, A reserve food hashmap with foodName->serves
  * Call Solver by getLowestCombo method, it will return a hashmap of foodName->Number
  */
 public class LpWizardTry {
