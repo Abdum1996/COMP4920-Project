@@ -6,16 +6,13 @@ import food.Food;
 
 public class SQLiteInsertFood {
 
-	public static int uniqueID = 1;
-	
 	public static void insertFood(Food food) {
 		Connection c = SQLiteAccess.buildConnection("food.db");
 		Statement stmt = null;
 		try {
 			stmt = c.createStatement();
 			String command = "INSERT INTO FOOD (ID,NAME,ENERGY,PROTEIN,FAT,SFA,CARB,SUGAR,SODIUM,COST) " + 
-						 "VALUES (" + uniqueID + ", '" + food.getName() + "', " + food.getEnergy() + ", " + food.getProtein() + ", " + food.getFat() + ", " + food.getSfa() + ", " + food.getCarb() + ", " + food.getSugar() + ", " + food.getSodium() + ", " + food.getCost() + " );";
-			uniqueID++;
+						 "VALUES (" + food.getName() + "', " + food.getEnergy() + ", " + food.getProtein() + ", " + food.getFat() + ", " + food.getSfa() + ", " + food.getCarb() + ", " + food.getSugar() + ", " + food.getSodium() + ", " + food.getCost() + " );";
 			stmt.executeUpdate(command);
 			stmt.close();
 			c.commit();

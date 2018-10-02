@@ -13,7 +13,6 @@ public class SQLiteFoodSelect {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM FOOD;");
 			while(rs.next()) {
-				System.out.println("ID = " + rs.getInt("id"));
 				System.out.println("Name = " + rs.getString("name"));
 				System.out.println("Energy = " + rs.getFloat("energy") + " kJ");
 				System.out.println("Protein = " + rs.getFloat("protein") + " g");
