@@ -6,7 +6,7 @@ import database.*;
 import food.Food;
 
 public class LpTest {
-
+	
 	public static void main (String[] args) {
 		ArrayList<Food> fList = SQLiteFoodSelect.selectAllFood();
 		HashMap<String, Integer> reserve = new HashMap<String, Integer>();
