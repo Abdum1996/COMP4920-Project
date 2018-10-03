@@ -7,8 +7,8 @@ public class SQLiteMasterAccessTest {
 	/*
 	public static void main (String[] Args) {
 		
-		//SQLiteNewDatabase.newDatabase();
-		//SQLiteNewTable.newTable();
+		SQLiteNewDatabase.newDatabase();
+		SQLiteNewTable.newTable();
 		ArrayList<Food> fList = new ArrayList<Food>();
 		Food bigMac = new Food("Big Mac", 2180, 26.9, 28.6, 11.3, 37.4, 6.4, 993, 5.5);
 		Food test2 = new Food("Test Food 1", 460, 11.1, 10.3, 5.1, 10.9, 5.6, 104, 1.3);
